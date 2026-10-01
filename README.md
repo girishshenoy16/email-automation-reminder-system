@@ -37,7 +37,7 @@ Benchmarked against an **Enterprise Notification Benchmark Cohort (18 Dispatches
 *Interactive 3-Tab Static Operations Platform deployed via GitHub Pages*
 
 </div>
-c
+
 ---
 
 ## Project Statistics
