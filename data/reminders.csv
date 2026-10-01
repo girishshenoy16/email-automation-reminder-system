@@ -1,0 +1,11 @@
+reminder_id,contact_id,reminder_type,event_title,due_date,due_time,amount_due,meeting_link
+REM-1001,CNT-001,payment,Q3 Corporate Tax Filing Review,2026-09-25,14:00,$4500.00,https://meet.google.com/abc-defg-hij
+REM-1002,CNT-002,meeting,Sprint Review & Retrospective,2026-09-25,16:30,N/A,https://meet.google.com/xyz-uvwx-rst
+REM-1003,CNT-003,webinar,Enterprise Automation Best Practices,2026-09-26,11:00,N/A,https://webinar.acmecorp.com/join/103
+REM-1004,CNT-004,payment,Annual SaaS License Invoice #INV-8821,2026-09-24,17:00,$1280.00,https://billing.acmecorp.com/pay/8821
+REM-1005,CNT-005,meeting,Architecture Design Sign-Off,2026-09-28,10:00,N/A,https://meet.google.com/eng-arch-sign
+REM-1006,CNT-006,payment,Vendor Consulting Services Invoice #INV-9042,2026-09-25,18:00,$3400.00,https://billing.luminafin.org/pay/9042
+REM-1007,CNT-007,webinar,Python Workflow Masterclass,2026-09-29,15:00,N/A,https://horizonedu.com/live/python-automation
+REM-1008,CNT-008,meeting,Process Quality Check,2026-09-25,09:00,N/A,https://meet.google.com/err-test-check
+REM-1009,CNT-009,payment,Marketing Campaign Retainer,2026-09-25,12:00,$2150.00,https://billing.fashionretail.com/invoice/991
+REM-1010,CNT-010,meeting,Compliance Audit Debrief,2026-09-30,13:00,N/A,https://meet.google.com/legal-audit-debrief

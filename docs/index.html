@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Automation & Reminder System — Executive Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- ===== HEADER RIBBON ===== -->
+  <header class="header-ribbon">
+    <div class="header-inner">
+      <div class="header-top">
+        <div class="header-left">
+          <h1 class="header-title">Email Automation &amp; Reminder System</h1>
+          <p class="header-subtitle">Executive Operations Dashboard</p>
+        </div>
+
+        <!-- Tab Navigation Bar inside Header Top -->
+        <nav class="tabs-nav" role="tablist" aria-label="Dashboard Views">
+          <button
+            class="tab-btn active"
+            id="tabOverviewBtn"
+            role="tab"
+            aria-selected="true"
+            aria-controls="tabOverviewPanel"
+            tabindex="0"
+            type="button"
+          >
+            <span class="tab-icon">📊</span> Overview
+          </button>
+          <button
+            class="tab-btn"
+            id="tabAuditBtn"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tabAuditPanel"
+            tabindex="-1"
+            type="button"
+          >
+            <span class="tab-icon">📋</span> Recent Dispatch Audit Log
+          </button>
+          <button
+            class="tab-btn"
+            id="tabTemplateBtn"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tabTemplatePanel"
+            tabindex="-1"
+            type="button"
+          >
+            <span class="tab-icon">✉️</span> Email Template Preview
+          </button>
+        </nav>
+
+        <div class="header-right">
+          <!-- DEMO MODE indicator: static synthetic-data demonstration, no live scheduler or SMTP connection -->
+          <span class="status-badge status-demo" id="statusBadge">◈ DEMO MODE</span>
+          <span class="header-timestamp" id="headerTimestamp">Data Snapshot: Loading…</span>
+          <span class="header-subtimestamp" id="renderTimestamp">Page Loaded: Loading…</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-container">
+
+    <!-- ===== SIDEBAR SLICERS ===== -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2 class="sidebar-heading">Filters</h2>
+      </div>
+
+      <div class="slicer-group">
+        <label class="slicer-label" for="slicerType">Reminder Type</label>
+        <select id="slicerType" class="slicer-select">
+          <option value="all">All Types</option>
+          <option value="Meeting">Meeting</option>
+          <option value="Payment">Payment</option>
+          <option value="Webinar">Webinar</option>
+        </select>
+      </div>
+
+      <div class="slicer-group">
+        <label class="slicer-label" for="slicerStatus">Dispatch Status</label>
+        <select id="slicerStatus" class="slicer-select">
+          <option value="all">All Statuses</option>
+          <option value="SMTP_ACCEPTED">SMTP Accepted</option>
+          <option value="SIMULATED">Simulated</option>
+          <option value="REQUIRES_REVIEW">Requires Review</option>
+          <option value="PENDING">Pending</option>
+          <option value="FAILED">Failed</option>
+        </select>
+      </div>
+
+      <div class="slicer-group">
+        <label class="slicer-label" for="slicerDepartment">Department</label>
+        <select id="slicerDepartment" class="slicer-select">
+          <option value="all">All Departments</option>
+        </select>
+      </div>
+
+      <button class="btn-reset" id="btnResetFilters" type="button">↺ Reset Filters</button>
+
+      <hr class="slicer-divider">
+
+      <button class="btn-simulate" id="btnSimulate" type="button">▶ Simulate Interactive Batch</button>
+      <p class="slicer-note">Client-side demo only. No SMTP activity, no backend, no persistent state change.</p>
+
+      <hr class="slicer-divider">
+
+      <!-- Delivery disclaimer preserved as required by the approved architecture -->
+      <div class="delivery-disclaimer">
+        <strong>Delivery Note:</strong> SMTP acceptance confirms upstream mail server handoff (250&nbsp;OK). It does not guarantee inbox delivery.
+      </div>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+      <div class="tabs-container" aria-label="Dashboard Panels">
+
+        <!-- ===== TAB 1: OVERVIEW PANEL (Default Active) ===== -->
+        <div
+          class="tab-panel active"
+          id="tabOverviewPanel"
+          role="tabpanel"
+          aria-labelledby="tabOverviewBtn"
+          tabindex="0"
+        >
+          <!-- KPI CARD ROW — 6 cards with responsive grid -->
+          <section class="kpi-row" id="kpiRow" aria-label="Key Performance Indicators">
+            <div class="kpi-card kpi-accent-blue">
+              <span class="kpi-value" id="kpiContacts">—</span>
+              <span class="kpi-label">Total Contacts</span>
+              <span class="kpi-sublabel">Global directory count</span>
+            </div>
+            <div class="kpi-card kpi-accent-navy">
+              <span class="kpi-value" id="kpiReminders">—</span>
+              <span class="kpi-label">Active Reminders</span>
+              <span class="kpi-sublabel">Global scheduled dataset</span>
+            </div>
+            <div class="kpi-card kpi-accent-green">
+              <span class="kpi-value" id="kpiSmtpAccepted">—</span>
+              <span class="kpi-label">SMTP Accepted</span>
+              <span class="kpi-sublabel">Confirmed MTA handoff (250 OK)</span>
+            </div>
+            <div class="kpi-card kpi-accent-teal">
+              <span class="kpi-value" id="kpiSimulated">—</span>
+              <span class="kpi-label">Simulated</span>
+              <span class="kpi-sublabel">Dry-run / demo dispatches</span>
+            </div>
+            <div class="kpi-card kpi-accent-gold">
+              <span class="kpi-value" id="kpiRate">—</span>
+              <span class="kpi-label">SMTP Acceptance Rate</span>
+              <span class="kpi-sublabel" id="kpiRateSublabel">SMTP_ACCEPTED ÷ live attempts</span>
+            </div>
+            <div class="kpi-card kpi-accent-red">
+              <span class="kpi-value" id="kpiReview">—</span>
+              <span class="kpi-label">Requires Review</span>
+              <span class="kpi-sublabel">Quarantined ambiguous outcomes</span>
+            </div>
+          </section>
+
+          <!-- CHARTS ROW -->
+          <section class="charts-row" aria-label="Data Visualizations">
+            <div class="chart-card">
+              <div class="chart-header">
+                <h3 class="chart-title">Dispatch Status Breakdown</h3>
+                <span class="chart-subtitle">Matching active filters</span>
+              </div>
+              <div class="chart-wrapper chart-wrapper-donut">
+                <canvas id="chartDonut"></canvas>
+              </div>
+            </div>
+
+            <div class="chart-card">
+              <div class="chart-header">
+                <h3 class="chart-title">Reminders by Department</h3>
+                <span class="chart-subtitle">Sorted by record count</span>
+              </div>
+              <div class="chart-wrapper">
+                <canvas id="chartDepartment"></canvas>
+              </div>
+            </div>
+
+            <div class="chart-card chart-card-wide">
+              <div class="chart-header">
+                <h3 class="chart-title">Dispatch Velocity Timeline</h3>
+                <span class="chart-subtitle">Daily dispatch volume (filter-responsive)</span>
+              </div>
+              <div class="chart-wrapper">
+                <canvas id="chartTimeline"></canvas>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ===== TAB 2: RECENT DISPATCH AUDIT LOG PANEL ===== -->
+        <div
+          class="tab-panel"
+          id="tabAuditPanel"
+          role="tabpanel"
+          aria-labelledby="tabAuditBtn"
+          tabindex="0"
+          hidden
+        >
+          <div class="table-section">
+            <div class="table-header-row">
+              <div class="table-title-group">
+                <h3 class="chart-title">Recent Dispatch Audit Log</h3>
+                <span class="record-count" id="recordCount">Loading records…</span>
+              </div>
+              <input type="text" id="tableSearch" class="table-search" placeholder="Search dispatches…" aria-label="Search dispatch records">
+            </div>
+            <div class="table-scroll">
+              <table class="audit-table" id="auditTable">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Recipient</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Timestamp</th>
+                  </tr>
+                </thead>
+                <tbody id="auditTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== TAB 3: EMAIL TEMPLATE PREVIEW PANEL ===== -->
+        <div
+          class="tab-panel"
+          id="tabTemplatePanel"
+          role="tabpanel"
+          aria-labelledby="tabTemplateBtn"
+          tabindex="0"
+          hidden
+        >
+          <div class="table-section">
+            <div class="table-header-row table-header-centered">
+              <div class="template-header-text">
+                <h3 class="chart-title">Email Template Preview</h3>
+                <p class="section-note">Synthetic preview using placeholder variables. No real recipient information is exposed.</p>
+              </div>
+            </div>
+            <div class="template-controls">
+              <select id="templateSelector" class="slicer-select" aria-label="Select template type">
+                <option value="meeting">Meeting Reminder</option>
+                <option value="payment">Payment Reminder</option>
+                <option value="webinar">Webinar Reminder</option>
+              </select>
+              <button class="btn-preview" id="btnPreview" type="button">Preview Template</button>
+            </div>
+            <div class="template-preview-frame" id="templatePreviewFrame">
+              <!-- Populated on load by app.js -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>Email Automation &amp; Reminder System — Student Portfolio Project &bull; Static GitHub Pages Deployment &bull; Built By Girish Shenoy</p>
+      <p class="footer-note">This dashboard renders an immutable, synthetic public fixture. Operational data, SMTP credentials, and private employee records remain strictly isolated.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

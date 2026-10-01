@@ -1,0 +1,209 @@
+{
+  "system_info": {
+    "last_updated": "2026-09-25T17:20:00Z",
+    "version": "1.0.0",
+    "environment": "GitHub Pages Public Demo",
+    "delivery_disclaimer": "SMTP acceptance confirms upstream mail server handoff (250 OK); inbox delivery depends on recipient mail infrastructure."
+  },
+  "kpis": {
+    "total_contacts": 25,
+    "total_reminders": 18,
+    "simulated_count": 12,
+    "smtp_accepted_count": 4,
+    "failed_count": 0,
+    "requires_review_count": 1,
+    "pending_count": 1,
+    "submission_rate_percent": 100.0,
+    "simulation_rate_percent": 66.7
+  },
+  "distribution_by_type": {
+    "Meeting": 8,
+    "Payment": 6,
+    "Webinar": 4
+  },
+  "distribution_by_status": {
+    "SMTP_ACCEPTED": 4,
+    "SIMULATED": 12,
+    "REQUIRES_REVIEW": 1,
+    "PENDING": 1,
+    "FAILED": 0
+  },
+  "distribution_by_department": {
+    "Finance": 6,
+    "Operations": 5,
+    "HR": 4,
+    "Engineering": 3
+  },
+  "dispatch_timeline": [
+    { "date": "2026-09-20", "count": 2 },
+    { "date": "2026-09-21", "count": 3 },
+    { "date": "2026-09-22", "count": 1 },
+    { "date": "2026-09-23", "count": 4 },
+    { "date": "2026-09-24", "count": 3 },
+    { "date": "2026-09-25", "count": 5 }
+  ],
+  "recent_dispatches": [
+    {
+      "id": "DEMO-101",
+      "recipient": "alex.m@example.com",
+      "department": "Finance",
+      "type": "Payment",
+      "subject": "Payment Due Reminder: Q3 Corporate Review",
+      "status": "SMTP_ACCEPTED",
+      "timestamp": "2026-09-20 09:15:00"
+    },
+    {
+      "id": "DEMO-102",
+      "recipient": "priya.s@example.com",
+      "department": "Operations",
+      "type": "Meeting",
+      "subject": "Meeting Alert: Sprint Retrospective",
+      "status": "SIMULATED",
+      "timestamp": "2026-09-20 11:30:00"
+    },
+    {
+      "id": "DEMO-103",
+      "recipient": "marcus.v@example.com",
+      "department": "HR",
+      "type": "Webinar",
+      "subject": "Webinar Alert: Automation Masterclass",
+      "status": "SIMULATED",
+      "timestamp": "2026-09-21 10:00:00"
+    },
+    {
+      "id": "DEMO-104",
+      "recipient": "david.k@example.com",
+      "department": "Engineering",
+      "type": "Meeting",
+      "subject": "Meeting Alert: Architecture Sign-Off",
+      "status": "SIMULATED",
+      "timestamp": "2026-09-21 14:00:00"
+    },
+    {
+      "id": "DEMO-105",
+      "recipient": "sophia.m@example.com",
+      "department": "Finance",
+      "type": "Payment",
+      "subject": "Payment Reminder: Consulting Services",
+      "status": "SMTP_ACCEPTED",
+      "timestamp": "2026-09-21 15:30:00"
+    },
+    {
+      "id": "DEMO-106",
+      "recipient": "rachel.c@example.com",
+      "department": "Operations",
+      "type": "Meeting",
+      "subject": "Meeting Alert: Operations Sync",
+      "status": "SIMULATED",
+      "timestamp": "2026-09-22 13:00:00"
+    },
+    {
+      "id": "DEMO-107",
+      "recipient": "kevin.l@example.com",
+      "department": "Finance",
+      "type": "Payment",
+      "subject": "Invoice Reminder: Software Licensing",
+      "status": "SIMULATED",
+      "timestamp": "2026-09-23 09:30:00"
+    },
+    {
+      "id": "DEMO-108",
+      "recipient": "amanda.b@example.com",
+      "department": "HR",
+      "type": "Meeting",
+      "subject": "Meeting Alert: Performance Review Cycle",
+      "status": "SIMULATED",
+      "timestamp": "2026-09-23 11:00:00"
+    },
+    {
+      "id": "DEMO-109",
+      "recipient": "brian.h@example.com",
+      "department": "Engineering",
+      "type": "Webinar",
+      "subject": "Webinar Alert: Cloud Infrastructure Scalability",
+      "status": "SMTP_ACCEPTED",
+      "timestamp": "2026-09-23 14:15:00"
+    },
+    {
+      "id": "DEMO-110",
+      "recipient": "cynthia.n@example.com",
+      "department": "Operations",
+      "type": "Payment",
+      "subject": "Payment Reminder: Facilities Contract",
+      "status": "SIMULATED",
+      "timestamp": "2026-09-23 16:45:00"
+    },
+    {
+      "id": "DEMO-111",
+      "recipient": "daniel.p@example.com",
+      "department": "Finance",
+      "type": "Meeting",
+      "subject": "Meeting Alert: Annual Budget Planning",
+      "status": "SIMULATED",
+      "timestamp": "2026-09-24 10:00:00"
+    },
+    {
+      "id": "DEMO-112",
+      "recipient": "emily.w@example.com",
+      "department": "HR",
+      "type": "Webinar",
+      "subject": "Webinar Alert: Workplace Wellness Series",
+      "status": "SIMULATED",
+      "timestamp": "2026-09-24 13:30:00"
+    },
+    {
+      "id": "DEMO-113",
+      "recipient": "frank.g@example.com",
+      "department": "Operations",
+      "type": "Meeting",
+      "subject": "Meeting Alert: Vendor Contract Evaluation",
+      "status": "SIMULATED",
+      "timestamp": "2026-09-24 15:00:00"
+    },
+    {
+      "id": "DEMO-114",
+      "recipient": "grace.k@example.com",
+      "department": "Engineering",
+      "type": "Meeting",
+      "subject": "Meeting Alert: Security Architecture Audit",
+      "status": "REQUIRES_REVIEW",
+      "timestamp": "2026-09-25 09:00:00"
+    },
+    {
+      "id": "DEMO-115",
+      "recipient": "hannah.j@example.com",
+      "department": "Finance",
+      "type": "Payment",
+      "subject": "Payment Due Reminder: Cloud Server Billing",
+      "status": "SMTP_ACCEPTED",
+      "timestamp": "2026-09-25 10:30:00"
+    },
+    {
+      "id": "DEMO-116",
+      "recipient": "ian.t@example.com",
+      "department": "HR",
+      "type": "Meeting",
+      "subject": "Meeting Alert: Quarterly All-Hands Briefing",
+      "status": "SIMULATED",
+      "timestamp": "2026-09-25 11:45:00"
+    },
+    {
+      "id": "DEMO-117",
+      "recipient": "jessica.r@example.com",
+      "department": "Operations",
+      "type": "Webinar",
+      "subject": "Webinar Alert: Process Automation Workflow",
+      "status": "SIMULATED",
+      "timestamp": "2026-09-25 14:00:00"
+    },
+    {
+      "id": "DEMO-118",
+      "recipient": "kyle.d@example.com",
+      "department": "Finance",
+      "type": "Payment",
+      "subject": "Payment Reminder: Legal Retainer Settlement",
+      "status": "PENDING",
+      "timestamp": "2026-09-25 16:00:00"
+    }
+  ]
+}

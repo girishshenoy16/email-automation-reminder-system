@@ -1,0 +1,16 @@
+WEBINAR ALERT
+============================================================
+Hi {name},
+
+You are registered for our upcoming live session: {event_title}.
+
+Webinar Details:
+- Topic: {event_title}
+- Date: {due_date}
+- Time: {due_time}
+
+Join URL: {meeting_link}
+
+============================================================
+Acme Training & Learning Hub • Automated Session Dispatch
+Recordings will be sent to registered attendees after the broadcast.

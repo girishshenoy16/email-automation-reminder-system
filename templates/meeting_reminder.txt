@@ -1,0 +1,17 @@
+MEETING REMINDER
+============================================================
+Hello {name},
+
+This is a scheduled reminder for your upcoming session: {event_title}.
+
+Meeting Details:
+- Event Title: {event_title}
+- Date: {due_date}
+- Time: {due_time}
+- Department: {department}
+
+Join Link: {meeting_link}
+
+============================================================
+Acme Enterprise Automation • Automated Delivery Notification
+Please do not reply directly to this automated email.

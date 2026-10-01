@@ -1,0 +1,17 @@
+PAYMENT & INVOICE REMINDER
+============================================================
+Dear {name},
+
+This is an automated notification regarding an upcoming invoice: {event_title}.
+
+Invoice Details:
+- Item: {event_title}
+- Amount Due: {amount_due}
+- Due Date: {due_date}
+- Company: {company}
+
+Payment Portal: {meeting_link}
+
+============================================================
+Acme Finance Department • Automated Reminder System
+Please submit remittance confirmation to accounts.

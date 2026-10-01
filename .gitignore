@@ -1,0 +1,62 @@
+# ==============================================================================
+# Email Automation & Reminder System — .gitignore
+# Strictly separates public demonstration code/assets from private operational
+# state, runtime deliverables, credentials, logs, and local environments.
+# ==============================================================================
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Python Cache & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environment Variables & Sensitive Credentials
+.env
+*.pem
+*.key
+
+# IDE, Editor & Tooling Metadata
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Operating System Artifacts
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Local Operational Data & Persistent State
+data/*.tmp*
+data/*.corrupted_*
+data/reminder_state.json
+data/reminder_state.json.tmp*
+data/enron_sample_analysis.csv
+
+# Internal Verification & Audit Documentation
+docs/CONSOLIDATED_CHANGE_LOG_AND_VERIFICATION_REPORT.md
+docs/component_verification_matrix.md
+
+# Private Operational Deliverables & Reports
+outputs
+
+# Runtime Execution Logs
+logs
+

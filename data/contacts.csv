@@ -1,0 +1,11 @@
+contact_id,name,email,department,company,phone
+CNT-001,Alex Morgan,alex.morgan@acmecorp.com,Finance,Acme Corporation,+1-555-0101
+CNT-002,Priya Sharma,priya.sharma@nexusops.io,Operations,Nexus Global,+1-555-0102
+CNT-003,Marcus Vance,marcus.vance@vanguardhr.com,HR,Vanguard Solutions,+1-555-0103
+CNT-004,Elena Rostova,elena.rostova@orionsales.net,Sales,Orion Enterprise,+1-555-0104
+CNT-005,David Kim,david.kim@apextech.co,Engineering,Apex Technologies,+1-555-0105
+CNT-006,Sophia Martinez,sophia.martinez@luminafin.org,Finance,Lumina Capital,+1-555-0106
+CNT-007,James Thornton,james.thornton@horizonedu.com,Training,Horizon Academy,+1-555-0107
+CNT-008,Invalid User,malformed-address-no-at-sign,Operations,Test Labs,+1-555-0108
+CNT-009,Rachel Green,rachel.green@fashionretail.com,Marketing,Central Retail,+1-555-0109
+CNT-010,Thomas Wright,thomas.wright@legalcorp.com,Legal,Wright Partners,+1-555-0110
